@@ -64,7 +64,7 @@ export default function Login({navigation}) {
                     <MaterialIcons name="caixa aberta" size={48} color="#83003d"/>
                 </View>
                 <Text style={styles.logoText}>EletroGestão</Text>
-                <Text style={styles.title}>Bem-vindo!</Text>
+                <Text style={styles.subtitulo}>Bem-vindo!</Text>
             </View>
 
         </ScrollView>
@@ -73,7 +73,32 @@ export default function Login({navigation}) {
 }
 // #endregion
 
-
 /**
  * Blocos styles, tudo que é estilo
  */
+const styles = StyleSheet.create ({
+    header: {
+        alignItems: 'center',
+        marginBottom: 28,
+    },
+    logoContainer: {
+        width: 64,
+        height: 64,
+        borderRadius: 12,
+        backgroundColor: '#eadfe4',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 12,
+    },
+    logoText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#1d2b3e',
+        letterSpacing: -0.5,
+    },
+    subtitulo: {
+        fontSize: 16,
+        color: '#75777d',
+        marginTop: 4,
+    },
+});
