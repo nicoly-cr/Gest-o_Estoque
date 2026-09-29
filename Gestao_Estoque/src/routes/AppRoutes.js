@@ -16,6 +16,9 @@ export default function AppRoutes() {
         >
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="NovoProduto" component={handleNovoProduto} />
+            <Stack.Screen name="Lista" component={handleLista} />
+            <Stack.Screen name="EstoqueBaixo" component={handleEstoqueBaixo} />
         </Stack.Navigator>
     );
 }

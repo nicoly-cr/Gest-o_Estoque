@@ -16,6 +16,7 @@ import {
 } from 'react-native';
 //import {ScrollView} from "react-native-web";
 import CustomInput from "../components/CustomInput";
+import CustomButton from "../components/CustomButton";
 
 //#endregion
 
@@ -66,7 +67,7 @@ export default function Login ({ navigation }) {
             {/* Cabeçalho com logo */}
             <View style={styles.header}>
                 <View style={styles.logoContainer}>
-                    <MaterialIcons name="archive" size={48} color="#bb5bff"/>
+                    <MaterialIcons name="move-to-inbox" size={48} color="#c42996"/>
                 </View>
                 <Text style={styles.logoText}>EletroGestão</Text>
                 <Text style={styles.subtitulo}>Bem-Vindo(a)!</Text>
@@ -101,11 +102,18 @@ export default function Login ({ navigation }) {
                     placeholder="Digite sua senha aqui: "
                     value={password}
                     onChangeText={(text) => {
-                        setEmail(text);
+                        setPassword(text);
                         if(error) setError(""); //limpa a mensagem de erro se o usuario
                     }}
                     secureTextEntry={true}
                 />
+
+                {/*Botão para entrar*/}
+                <CustomButton
+                    title="Entrar"
+                    onPress={handleLogin}
+                />
+            
             </View>
         </ScrollView>
     );
