@@ -36,15 +36,15 @@ export default function Home({ navigation }) {
 
     //Call Back
     const handleNovoProduto = () =>{
-        navigation.navigation('NovoProduto');
+        navigation.navigate('NovoProduto');
     };
 
     const handleLista = () =>{
-        navigation.navigation('Lista');
+        navigation.navigate('Lista');
     };
 
     const handleEstoqueBaixo = () =>{
-        navigation.navigation('EstoqueBaixo');
+        navigation.navigate('EstoqueBaixo');
     };
 
     return (
@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
     },
     subtituloPlace:{
         fontSize: 12,
-        color: '#afb0b3',
+        color: '#a2a3a4',
         marginTop: 1,
     },
     containerTexto:{
