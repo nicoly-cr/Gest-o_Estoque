@@ -194,12 +194,12 @@ const styles = StyleSheet.create({
     sair: {
         width: 40,
         height: 40,
-        backgroundColor: '#ffdad6',
+        backgroundColor: '#ffd6eb',
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 1,
-        borderColor: '#ffb4ab',
+        borderColor: '#ffabeb',
     },
     rowCards: {
         flexDirection: 'row',
@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
     },
     subtituloPlace:{
         fontSize: 12,
-        color: '#a2a3a4',
+        color: '#a4a2a3',
         marginTop: 1,
     },
     containerTexto:{

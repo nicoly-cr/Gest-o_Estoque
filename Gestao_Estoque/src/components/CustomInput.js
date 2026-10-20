@@ -16,7 +16,8 @@ import { MaterialIcons } from '@expo/vector-icons';
  * - placeholder: Texto de dica dentro do campo
  * - secureTextEntry: Se verdadeiro, esconde o texto (para senhas)
  * - keyboardType: Tipo do teclado (ex: 'email-address', 'default')
- */
+*/
+
 export default function CustomInput({
   label,
   iconName,
@@ -25,24 +26,42 @@ export default function CustomInput({
   placeholder,
   secureTextEntry = false,
   keyboardType = 'default',
+  multiline = false,
+  numberOfLines = 1,
+  containerStyle,
+  inputWrapperStyle,
+  inputStyle,
+  error,
+  ...rest
 }) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, containerStyle]}>
       {/* Label do campo */}
       {label && <Text style={styles.label}>{label}</Text>}
 
       {/* Caixa do Input com Ícone */}
-      <View style={styles.inputWrapper}>
+      <View
+        style={[
+          styles.inputWrapper,
+          multiline && styles.inputWrapperMultiline,
+          error ? styles.inputWrapperError : null,
+          inputWrapperStyle,
+        ]}
+      >
         {iconName && (
           <MaterialIcons
             name={iconName}
             size={20}
-            color="#75777d"
-            style={styles.icon}
+            color={error ? '#ba1a1a' : '#75777d'}
+            style={[styles.icon, multiline && styles.iconMultiline]}
           />
         )}
         <TextInput
-          style={styles.input}
+          style={[
+            styles.input,
+            multiline && styles.inputMultiline,
+            inputStyle,
+          ]}
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
@@ -50,8 +69,15 @@ export default function CustomInput({
           secureTextEntry={secureTextEntry}
           keyboardType={keyboardType}
           autoCapitalize="none"
+          multiline={multiline}
+          numberOfLines={numberOfLines}
+          textAlignVertical={multiline ? 'top' : 'center'}
+          {...rest}
         />
       </View>
+
+      {/* Mensagem de Erro se houver */}
+      {error && <Text style={styles.errorText}>{error}</Text>}
     </View>
   );
 }
@@ -79,13 +105,34 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     height: 48,
   },
+  inputWrapperMultiline: {
+    height: 96,
+    alignItems: 'flex-start',
+    paddingVertical: 10,
+  },
+  inputWrapperError: {
+    borderColor: '#ba1a1a',
+    backgroundColor: '#fff8f7',
+  },
   icon: {
     marginRight: 8,
+  },
+  iconMultiline: {
+    marginTop: 2,
   },
   input: {
     flex: 1,
     height: '100%',
     color: '#191c1e',
     fontSize: 14,
+  },
+  inputMultiline: {
+    textAlignVertical: 'top',
+  },
+  errorText: {
+    color: '#ba1a1a',
+    fontSize: 11,
+    marginTop: 4,
+    fontWeight: '500',
   },
 });
